@@ -4,11 +4,13 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const port = process.env.PORT
+const secret = process.env.SECRET
+app.set('secret',secret)
 
-app.set('secret', 'i2u34y12oi3u4y8')
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
 app.use(cors())
 app.use(express.json())
 require('./plugins/db')()
